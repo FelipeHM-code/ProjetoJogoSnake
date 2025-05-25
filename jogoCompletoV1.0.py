@@ -1,9 +1,13 @@
-import pygame
+import pygame, sys , os
 from pygame.locals import *
 from sys import exit   #para importar de sistema o comando exit para criar a saida da tela
 from random import randint
 import random
 
+dirpath = os.getcwd()
+sys.path.append(dirpath)
+if getattr(sys, "frozen", False):
+    os .chdir(sys._MEIPASS)
 
 
 pygame.init()  #para iniciar o pygame
