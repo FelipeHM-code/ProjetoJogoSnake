@@ -3,7 +3,7 @@ from pygame.locals import *
 from sys import exit   #para importar de sistema o comando exit para criar a saida da tela
 from random import randint
 import random
-
+from tela_menu import exibir_menu
 dirpath = os.getcwd()
 sys.path.append(dirpath)
 if getattr(sys, "frozen", False):
@@ -11,6 +11,7 @@ if getattr(sys, "frozen", False):
 
 
 pygame.init()  #para iniciar o pygame
+
 
 pygame.mixer.music.set_volume(0.1)
 musica_fundo = pygame.mixer.music.load('sons/Musica_de_fundo.mp3')
@@ -30,14 +31,16 @@ velocidade = 10
 x_controle = 20
 y_controle = 0
 FPS = 30
+exibir_menu(tela, largura, altura)
+pygame.mixer.music.load('sons/Musica_de_fundo.mp3')
+pygame.mixer.music.play(-1)
 
 lista_cobra = []
 compri_inicial = 5
 
 fonte = pygame.font.SysFont('arial',40,True,True)
 pontos = 0
-#tela=pygame.display.set_mode((largura, altura))#variavel tela com o comando para criar uma janela, chamando o ste mode com as conf de largura e
-#altura
+
 morreu = False
 
 
@@ -59,7 +62,6 @@ def reiniciar_jogo():
    lista_cabeca = []
    morreu = False
  
-
 pygame.display.set_caption('Primeiro Jogo')#serve para alterar o nome da janela na parte de cima
 
 class Inimigo(pygame.sprite.Sprite):
@@ -107,7 +109,7 @@ while True:
     for event in pygame.event.get():
         if event.type== pygame.QUIT:
             exit()
-            
+
         if event.type == pygame.KEYDOWN: 
             if event.key == pygame.K_a: 
                 if x_controle == velocidade:

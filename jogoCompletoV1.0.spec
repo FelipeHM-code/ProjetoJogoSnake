@@ -5,7 +5,7 @@ a = Analysis(
     ['jogoCompletoV1.0.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[("ProjetoJogo","ProjetoJogo")],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
