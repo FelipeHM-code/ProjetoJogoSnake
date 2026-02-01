@@ -1,4 +1,5 @@
-import pygame, sys , os
+import pygame
+import sys, os
 from pygame.locals import *
 from sys import exit   #para importar de sistema o comando exit para criar a saida da tela
 from random import randint
@@ -14,15 +15,15 @@ pygame.init()  #para iniciar o pygame
 
 
 pygame.mixer.music.set_volume(0.1)
-musica_fundo = pygame.mixer.music.load('sons/Musica_de_fundo.mp3')
+musica_fundo = pygame.mixer.music.load('ProjetoJogo/sons/Musica_de_fundo.mp3')
 pygame.mixer.music.play(-1)
 
-barulho_colosao = pygame.mixer.Sound('sons/smw_dragon_coin.wav')
+barulho_colosao = pygame.mixer.Sound('ProjetoJogo/sons/smw_dragon_coin.wav')
 barulho_colosao.set_volume(1)
 largura =840
 altura = 640
 tela=pygame.display.set_mode((largura, altura))
-imagem_fundo = pygame.image.load('images/fajrbackground.png').convert()
+imagem_fundo = pygame.image.load('ProjetoJogo/images/fajrbackground.png').convert()
 imgem_fundo = pygame.transform.scale(imagem_fundo,(largura,altura))
 x_persona = largura/2 #diz em qual lugar o boneco nasce
 y_persona = altura/2
@@ -32,7 +33,7 @@ x_controle = 20
 y_controle = 0
 FPS = 30
 exibir_menu(tela, largura, altura)
-pygame.mixer.music.load('sons/Musica_de_fundo.mp3')
+pygame.mixer.music.load('ProjetoJogo/sons/Musica_de_fundo.mp3')
 pygame.mixer.music.play(-1)
 
 lista_cobra = []
@@ -68,11 +69,11 @@ class Inimigo(pygame.sprite.Sprite):
    def __init__(self):
     pygame.sprite.Sprite.__init__(self)
     self.sprites = []
-    self.sprites.append(pygame.image.load('images/moeda1.PNG'))
-    self.sprites.append(pygame.image.load('images/moeda2.PNG'))
-    self.sprites.append(pygame.image.load('images/moeda3.PNG'))
-    self.sprites.append(pygame.image.load('images/moeda4.PNG'))
-    self.sprites.append(pygame.image.load('images/moeda5.PNG'))
+    self.sprites.append(pygame.image.load('ProjetoJogo/images/moeda1.PNG'))
+    self.sprites.append(pygame.image.load('ProjetoJogo/images/moeda2.PNG'))
+    self.sprites.append(pygame.image.load('ProjetoJogo/images/moeda3.PNG'))
+    self.sprites.append(pygame.image.load('ProjetoJogo/images/moeda4.PNG'))
+    self.sprites.append(pygame.image.load('ProjetoJogo/images/moeda5.PNG'))
     self.atual = 0
     self.image = self.sprites[self.atual]
     self.rect = self.image.get_rect()
